@@ -6,7 +6,7 @@ if (isset($_GET['id']) && isset($_GET['status'])) {
     $status = $_GET['status'];
 
     // Liste des statuts autorisés pour la sécurité
-    $allowed_status = ['open', 'pending', 'resolved'];
+    $allowed_status = ['open', 'pending', 'resolved', 'closed'];
 
     if (in_array($status, $allowed_status)) {
         $stmt = $pdo->prepare("UPDATE tickets SET status = ? WHERE id = ?");

@@ -1,0 +1,240 @@
+body {
+  font-family: sans-serif;
+  background: #f4f4f4;
+  padding: 20px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Style du header */
+.header-dashboard {
+  background: rgb(189, 198, 238);
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+  margin: 0 auto 20px auto; /* Centré et espacé du contenu */
+  display: flex;
+  align-items: center;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Espace entre le titre et le badge */
+}
+
+.header-dashboard h1 {
+  font-size: 1.5rem;
+  color: #1e293b;
+  margin: 0;
+}
+
+/* Style épuré pour le badge */
+.badge-dashboard {
+  background: #e2e8f0;
+  color: #475569;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Style de la carte */
+.card {
+  background: white;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0; /* Bordure subtile au lieu de l'ombre forte */
+}
+
+.card h1 {
+  margin-bottom: 20px;
+  background: #e2e8f0;
+  color: #475569;
+  padding: 10px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  width: max-content;
+}
+
+/* Style du tableau épuré */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th {
+  background: rgb(189, 198, 238); /* On enlève le fond bleu agressif */
+  color: #000; /* Texte gris pour moins de contraste */
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 12px 8px;
+  border: 2px solid #f1f5f9;
+  text-align: left;
+}
+
+td {
+  padding: 16px 8px;
+  color: #334155;
+  border: 1px solid #f1f5f9;
+}
+
+/* Effet au survol pour la lisibilité */
+tbody tr:hover {
+  background-color: #f8fafc;
+}
+
+/* Espacement entre les sections */
+.card + .card {
+  margin-top: 24px;
+}
+
+/* Style des inputs */
+.form-group {
+  margin-bottom: 16px;
+}
+
+label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #475569;
+  margin-bottom: 6px;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  box-sizing: border-box; /* Important pour que le padding n'agrandisse pas l'input */
+  transition: border 0.2s;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+select {
+  /* Ajoute de l'espace à droite pour la flèche système */
+  padding-right: 30px;
+
+  /* Optionnel : assure que le select a la même hauteur que tes inputs */
+  height: 40px;
+
+  /* Gère mieux l'affichage sur certains navigateurs */
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%2364748b%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 12px;
+}
+
+/* Style du bouton */
+.btn-submit {
+  background: rgb(189, 198, 238);
+  color: #000;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-submit:hover {
+  background: transparent;
+  border: #000 1px solid;
+}
+
+/* Ligne en retard (Background alarmant) */
+.overdue-row {
+  background-color: #fee2e2 !important;
+}
+
+.overdue-row td {
+  color: #991b1b;
+  font-weight: 600;
+}
+
+/* Style du bouton détail */
+.btn-detail {
+  background: #e2e8f0;
+  border: none;
+  padding: 6px 25px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+/* Conteneur pour le scroll mobile */
+.table-container {
+  overflow-x: auto;
+}
+
+/* Style de la modale */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.modal-content-wrapper {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 500px;
+  margin: 100px auto;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.btn-close {
+  background: #64748b;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.modal-info {
+  font-size: 0.95rem;
+  color: #334155;
+}
+
+.modal-info p {
+  margin-bottom: 10px;
+}
+
+#modal-status-select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+  cursor: pointer;
+}
