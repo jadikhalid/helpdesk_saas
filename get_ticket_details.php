@@ -39,13 +39,21 @@ $options = $transitions[$currentStatus] ?? [];
   <p><strong>Priorité:</strong> <?= htmlspecialchars($ticket['priority_label']) ?></p>
   <p><strong>Date de création:</strong> <?= date('d/m/Y H:i', strtotime($ticket['created_at'])) ?></p>
   <p><strong>Deadline:</strong> <?= date('d/m/Y H:i', strtotime($ticket['deadline_at'])) ?></p>
-  <hr>
+  <hr class="hr-left">
   <label><strong>Changer le statut :</strong></label>
-  <select id="modal-status-select" onchange="updateStatusInModal(<?= $ticket['id'] ?>, this.value)">
+  <select id="modal-status-select">
     <option value="" disabled selected>-- Choisir une action --</option>
 
     <?php foreach ($options as $value => $label): ?>
       <option value="<?= $value ?>"><?= $label ?></option>
     <?php endforeach; ?>
   </select>
+  <textarea id="modal-comment" rows="10" placeholder="Entrez un commentaire (minimum 50 caractères)..."></textarea>
+  <hr class="hr-left">
+
+  <div class="modal-footer">
+    <button id="btn-validate-status" class="btn-submit-action" onclick="validateStatusChange(<?= $ticket['id'] ?>)">
+      Confirmer le changement
+    </button>
+  </div>
 </div>

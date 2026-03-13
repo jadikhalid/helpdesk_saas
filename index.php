@@ -86,86 +86,6 @@ $tickets = $queryTickets->fetchAll();
         <div class="card" style="margin-top: 20px; font-size: 0.9rem;">
             <h2>Tickets en cours dans la base</h2>
             <?php if (count($tickets) > 0): ?>
-                <!-- <table>
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Sujet</th>
-                            <th>Description</th>
-                            <th>Priorité</th>
-                            <th>Date de création</th>
-                            <th>Deadline (SLA)</th>
-                            <th>Status</th>
-                            <th>Action</th>
-                            <th>Suppression</th>
-
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach ($tickets as $ticket): ?>
-                            <tr>
-                                <td>#<?= $ticket['id'] ?></td>
-                                <td><strong><?= htmlspecialchars($ticket['subject']) ?></strong></td>
-                                <td><?= nl2br(htmlspecialchars($ticket['description'])) ?></td>
-                                <td>
-                                    <span style="background: #e9ecef; padding: 2px 8px; border-radius: 4px;">
-                                        <?= htmlspecialchars($ticket['priority_label'] ?? 'Non définie') ?>
-                                    </span>
-                                </td>
-                                <td><?= date('d/m/Y H:i', strtotime($ticket['created_at'])) ?></td>
-                                <td style="color: <?= (strtotime($ticket['deadline_at']) < time()) ? 'red' : 'green' ?>;">
-                                    <strong><?= date('d/m/Y H:i', strtotime($ticket['deadline_at'])) ?></strong>
-                                </td>
-                                <td>
-                                    <?php
-                                    $statusColors = [
-                                        'open' => 'background: #ffc107; color: black;', // Jaune
-                                        'pending' => 'background: #17a2b8; color: white;', // Bleu
-                                        'resolved' => 'background: #28a745; color: white;' // Vert
-                                    ];
-                                    $style = $statusColors[$ticket['status']] ?? '';
-                                    ?>
-                                    <span style="
-                                    display: inline-block; 
-                                    width: 80px; 
-                                    text-align: center; 
-                                    padding: 3px 10px; 
-                                    border-radius: 12px; 
-                                    font-size: 0.8em; 
-                                    <?= $style ?>" id="badge-<?= $ticket['id'] ?>">
-                                        <?= strtoupper($ticket['status']) ?>
-                                    </span>
-                                </td>
-                                <td>
-                                    <form action="update_status.php" method="GET">
-                                        <input type="hidden" name="id" value="<?= $ticket['id'] ?>">
-                                        <select name="status" class="status-select" data-id="<?= $ticket['id'] ?>" style="width: 150px;">
-                                            <option value="" disabled selected>Faîtes un choix</option>
-
-                                            <?php
-                                            $status = $ticket['status'];
-
-                                            if ($status === 'open'): ?>
-                                                <option value="pending">Prendre en charge</option>
-                                                <option value="resolved">Clôturer</option>
-                                            <?php elseif ($status === 'pending'): ?>
-                                                <option value="open">Réouvrir</option>
-                                                <option value="resolved">Clôturer</option>
-                                            <?php elseif ($status === 'resolved'): ?>
-                                                <option value="open">Réouvrir</option>
-                                            <?php endif; ?>
-                                        </select>
-                                    </form>
-                                </td>
-                                <td>
-                                    <a href="delete_ticket.php?id=<?= $ticket['id'] ?>"
-                                        onclick="return confirm('Confirmer la suppression ?');"
-                                        style="color: red; text-decoration: none;">🗑️ Supprimer</a>
-                                </td>
-                            </tr>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table> -->
                 <div class="table-container">
                     <table>
                         <thead>
@@ -180,14 +100,12 @@ $tickets = $queryTickets->fetchAll();
                         </thead>
                         <tbody>
                             <?php foreach ($tickets as $ticket):
-                                $isOverdue = (strtotime($ticket['deadline_at']) < time());
                             ?>
-                                <tr class="<?= $isOverdue ? 'overdue-row' : '' ?>">
+                                <tr>
                                     <td>#<?= $ticket['id'] ?></td>
                                     <td><?= htmlspecialchars($ticket['priority_label'] ?? '-') ?></td>
                                     <td><?= date('d/m H:i', strtotime($ticket['created_at'])) ?></td>
-                                    <!-- <td><?= date('d/m H:i', strtotime($ticket['deadline_at'])) ?></td> -->
-                                    <td><span class="status-badge"><?= strtoupper($ticket['status']) ?></span></td>
+                                    <td><span class="status-badge status-<?= $ticket['status'] ?>"><?= strtoupper($ticket['status']) ?></span></td>
                                     <td>
                                         <button class="btn-detail" onclick="openModal(<?= $ticket['id'] ?>)">Voir</button>
                                     </td>
@@ -196,17 +114,16 @@ $tickets = $queryTickets->fetchAll();
                         </tbody>
                     </table>
                 </div>
-
-                <div id="modal-container" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:1000;">
-                    <div class="card" style="width: 500px; margin: 100px auto;">
-                        <h2>Détails du Ticket</h2>
-                        <div id="modal-content">Chargement...</div>
-                        <button class="btn-close" onclick="document.getElementById('modal-container').style.display='none'">Fermer</button>
-                    </div>
-                </div>
             <?php else: ?>
                 <p>Aucun ticket trouvé pour le moment. Utilisez le formulaire ci-dessus !</p>
             <?php endif; ?>
+        </div>
+        <div id="modal-container" class="modal-overlay">
+            <div class="card modal-fullscreen">
+                <button class="btn-close" onclick="closeModal()">&times; Fermer</button>
+                <h2>Détails du Ticket</h2>
+                <div id="modal-content">Chargement...</div>
+            </div>
         </div>
     </div>
 

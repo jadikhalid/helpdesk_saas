@@ -162,24 +162,16 @@ select {
   border: #000 1px solid;
 }
 
-/* Ligne en retard (Background alarmant) */
-.overdue-row {
-  background-color: #fee2e2 !important;
-}
-
-.overdue-row td {
-  color: #991b1b;
-  font-weight: 600;
-}
-
 /* Style du bouton détail */
 .btn-detail {
-  background: #e2e8f0;
+  background: #7eaff0;
   border: none;
-  padding: 6px 25px;
-  border-radius: 4px;
+  padding: 8px 25px;
   cursor: pointer;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
+  color: white;
+  font-weight: bold;
+  width: 90px;
 }
 
 /* Conteneur pour le scroll mobile */
@@ -188,15 +180,29 @@ select {
 }
 
 /* Style de la modale */
+.modal-fullscreen {
+  width: 100% !important;
+  height: 100vh; /* 100% de la hauteur de la fenêtre */
+  margin: 0 !important;
+  border-radius: 0 !important; /* Pour supprimer les coins arrondis en mode plein écran */
+  overflow-y: auto; /* Permet de scroller si le contenu est trop long */
+  position: absolute;
+  top: 0;
+  left: 0;
+}
 .modal-overlay {
   display: none;
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  width: 100vw;
+  height: 100vh;
+  background: #fff;
   z-index: 1000;
+}
+
+.no-scroll {
+  overflow: hidden;
 }
 
 .modal-content-wrapper {
@@ -210,14 +216,21 @@ select {
 }
 
 .btn-close {
-  background: #64748b;
+  position: absolute;
+  top: 20px;
+  left: 90%;
+  background: #ef4444; /* Rouge pour bien marquer l'action de sortie */
   color: white;
   border: none;
-  padding: 8px 16px;
+  padding: 10px 20px;
   border-radius: 6px;
   cursor: pointer;
-  margin-top: 20px;
-  cursor: pointer;
+  font-weight: bold;
+  z-index: 1001; /* S'assure qu'il est au-dessus de tout le reste */
+}
+
+.btn-close:hover {
+  background: #dc2626;
 }
 
 .modal-info {
@@ -230,11 +243,80 @@ select {
 }
 
 #modal-status-select {
-  width: 100%;
+  width: 30%;
   padding: 10px;
   margin-top: 10px;
   margin-bottom: 20px;
   border-radius: 6px;
   border: 1px solid #cbd5e1;
   cursor: pointer;
+}
+
+/* Style de base du badge */
+.status-badge {
+  display: inline-block;
+  padding: 8px 8px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #fff;
+  width: 90px;
+  text-align: center;
+}
+
+/* Couleurs par statut */
+.status-open {
+  background-color: #f59e0b;
+} /* Jaune/Orange */
+.status-pending {
+  background-color: #6366f1;
+} /* Bleu/Violet */
+.status-resolved {
+  background-color: #10b981;
+} /* Vert */
+.status-closed {
+  background-color: #64748b;
+} /* Gris */
+
+/* Conteneur du footer pour espacer le bouton du reste */
+.modal-footer {
+  display: flex;
+  justify-content: flex-start; /* Aligne le bouton à droite */
+}
+
+/* Style épuré et moderne pour le bouton */
+.btn-submit-action {
+  background: #1e293b; /* Couleur sombre sobre */
+  color: #ffffff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-submit-action:hover {
+  background: #334155;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Optionnel : style pour la zone de saisie */
+#modal-comment {
+  display: block;
+  width: 30%;
+  margin-top: 10px;
+  padding: 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  resize: vertical;
+}
+
+.hr-left {
+  margin-left: 0; /* Force l'alignement à gauche */
+  margin-right: auto; /* Laisse l'espace libre à droite */
+  border: 0; /* Supprime le style par défaut du navigateur */
+  border-top: 2px solid #e2e8f0; /* Définit l'épaisseur et la couleur */
+  width: 30%; /* Votre largeur définie */
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
