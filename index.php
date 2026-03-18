@@ -1,4 +1,5 @@
 <?php
+require_once 'auth_check.php';
 require_once './config/db.php';
 
 // On récupère les SLAs pour prouver que la jointure future fonctionnera
@@ -30,9 +31,14 @@ $tickets = $queryTickets->fetchAll();
 <body>
     <div class="container">
         <header class="header-dashboard">
-            <div class="header-content">
-                <h1>Helpdesk Support</h1>
-                <span class="badge-dashboard">Dashboard</span>
+            <div class="header-content" style="width: 100%; display: flex; justify-content: space-between; align-items: center;">
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <h1>Helpdesk Support</h1>
+                    <span class="badge-dashboard">Dashboard</span>
+                    <span style="font-size: 0.8rem; color: #64748b;">Connecté en tant que : <strong><?= htmlspecialchars($_SESSION['user_name']) ?></strong></span>
+                </div>
+
+                <a href="logout.php" class="btn-logout" style="text-decoration: none;">Se déconnecter</a>
             </div>
         </header>
         <div class="card">
