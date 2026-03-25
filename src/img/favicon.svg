@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Favicon T.CHECK</title>
+    <g id="Favicon" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle" fill="#6366F1" x="0" y="0" width="48" height="48" rx="10"></rect>
+        
+        <path d="M19.5,18 L19.5,29 C19.5,29.8284271 20.1715729,30.5 21,30.5 L25.5,30.5" id="Shape" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round"></path>
+        
+        <circle id="Dot" fill="#FFFFFF" cx="36" cy="12" r="4.5"></circle>
+    </g>
+</svg>

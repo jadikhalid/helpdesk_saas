@@ -32,197 +32,51 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Connexion | JADI DIGITAL Helpdesk</title>
+  <title>T.CHECK | Par JADI DIGITAL</title>
+  <link rel="icon" type="image/svg+xml" href="./src/img/favicon.svg">
   <link rel="stylesheet" href="style.css">
-  <style>
-    .split-screen {
-      display: flex;
-      flex-direction: row;
-      min-height: 100vh;
-      width: 100%;
-      overflow: hidden;
-    }
-
-    /* --- SECTION INFO AVEC DÉCORATIONS --- */
-    .left-side {
-      flex: 1;
-      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-      color: white;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 60px;
-      position: relative;
-      /* Nécessaire pour positionner les formes */
-      overflow: hidden;
-    }
-
-    /* Tâches de lumière blanches/bleutées */
-    .blob {
-      position: absolute;
-      width: 300px;
-      height: 300px;
-      background: rgba(255, 255, 255, 0.05);
-      filter: blur(80px);
-      border-radius: 50%;
-      z-index: 1;
-    }
-
-    .blob-1 {
-      top: -100px;
-      left: -100px;
-      background: rgba(99, 102, 241, 0.15);
-    }
-
-    .blob-2 {
-      bottom: -50px;
-      right: -50px;
-      width: 400px;
-      height: 400px;
-    }
-
-    /* Formes géométriques stylisées */
-    .shape {
-      position: absolute;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      z-index: 1;
-    }
-
-    .circle-shape {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      top: 10%;
-      right: -50px;
-    }
-
-    .square-shape {
-      width: 150px;
-      height: 150px;
-      bottom: 15%;
-      left: -30px;
-      transform: rotate(45deg);
-    }
-
-    .business-logic {
-      position: relative;
-      z-index: 10;
-      /* Passe au dessus des formes */
-    }
-
-    .logic-item {
-      background: rgba(255, 255, 255, 0.03);
-      padding: 20px;
-      border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(5px);
-      margin-bottom: 20px;
-    }
-
-    /* --- SECTION FORMULAIRE --- */
-    .right-side {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: #ffffff;
-      padding: 40px;
-      z-index: 20;
-    }
-
-    .login-card {
-      border: none;
-      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
-    }
-
-    @media (max-width: 768px) {
-      .split-screen {
-        flex-direction: column-reverse;
-      }
-
-      .left-side {
-        padding: 40px 20px;
-      }
-
-      .blob {
-        display: none;
-      }
-
-      /* On simplifie sur mobile pour la performance */
-    }
-  </style>
 </head>
 
 <body class="login-page" style="padding:0; background:none;">
   <div class="split-screen">
-
-
     <section class="left-side">
       <div class="blob blob-1"></div>
       <div class="blob blob-2"></div>
-      <div class="shape circle-shape"></div>
-      <div class="shape square-shape"></div>
 
-      <div class="business-logic">
+      <div class="business-logic" style="display: flex; flex-direction: column; height: 100%; justify-content: flex-end; gap: 40px;">
 
-        <div class="logo-wrapper" style="margin-bottom: 40px; display: flex; align-items: center; gap: 15px;">
-          <div class="abstract-logo" style="
-        position: relative;
-        width: 50px;
-        height: 50px;
-        background: #6366f1;
-        border-radius: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 10px 20px rgba(99, 102, 241, 0.4);
-      ">
-            <div style="
-          width: 20px;
-          height: 25px;
-          border-left: 5px solid white;
-          border-bottom: 5px solid white;
-          border-radius: 0 0 0 8px;
-          transform: rotate(-10deg) translateX(2px);
-        "></div>
-            <div style="
-          position: absolute;
-          top: 10px;
-          right: 10px;
-          width: 8px;
-          height: 8px;
-          background: #fff;
-          border-radius: 50%;
-        "></div>
+        <div class="brand-header">
+          <div class="logo-wrapper" style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
+            <div class="abstract-logo" style="width: 40px; height: 40px; background: #6366f1; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+              <div style="width: 15px; height: 20px; border-left: 4px solid white; border-bottom: 4px solid white; border-radius: 0 0 0 5px; transform: rotate(-10deg);"></div>
+            </div>
+            <span style="font-size: 1.5rem; font-weight: 900; letter-spacing: 1px; color: #fff;">T.CHECK</span>
           </div>
-          <div>
-            <span style="display: block; font-size: 1.4rem; font-weight: 900; letter-spacing: 1px; color: #fff; line-height: 1;">T.CHECK</span>
-          </div>
+          <span style="background: rgba(99, 102, 241, 0.2); color: #818cf8; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; border: 1px solid rgba(99, 102, 241, 0.3);">
+            Ticketing & Helpdesk System
+          </span>
         </div>
 
-        <h2 style="color: #6366f1; font-weight: 700; font-size: 0.9rem; text-transform: uppercase;">Plateforme Helpdesk</h2>
-        <h1 style="font-size: 2.8rem; margin: 10px 0 40px 0; line-height: 1.1; letter-spacing: -1px;">
-          L'intelligence au service du <span style="color: #94a3b8;">Support.</span>
-        </h1>
-
-        <div class="logic-grid">
-          <div class="logic-item">
-            <h3 style="color: #fff;">⚡ Moteur de support universel</h3>
-            <p style="color: #94a3b8; font-size: 0.9rem; margin: 0;">Un système qui s'ajuste à vos propres processus métier et à vos engagements de service (SLA) en quelques clics.</p>
-          </div>
-
-          <div class="logic-item">
-            <h3 style="color: #fff;">🔒 Sécurité Native</h3>
-            <p style="color: #94a3b8; font-size: 0.9rem; margin: 0;">Gestion des accès basée sur les rôles (RBAC) pour une isolation stricte des données.</p>
-          </div>
+        <div class="hero-text">
+          <h1 style="font-size: 3.2rem; line-height: 1.1; font-weight: 800; margin-top: 20%; letter-spacing: -1.5px;">
+            Gérez chaque incident <br>
+            <span style="color: #6366f1;">avec précision.</span>
+          </h1>
+          <p style="color: #94a3b8; font-size: 1.1rem; margin-top: 20px; max-width: 70%; line-height: 1.6; font-weight: 400;">
+            Optimisez vos flux de support et centralisez vos demandes avec la puissance technologique de <strong>T.CHECK</strong>.
+          </p>
+          <div style="width: 60px; height: 4px; background: #6366f1; border-radius: 2px;"></div>
         </div>
 
-        <p style="margin-top: 30px; font-size: 0.8rem; color: rgba(255,255,255,0.3);">
-          © 2026 JADI DIGITAL. Tous droits réservés.
-        </p>
+
+        <div style="margin-top: auto;">
+          <p style="font-size: 0.75rem; color: rgba(255,255,255,0.3); letter-spacing: 1px;">
+            © 2026 JADI DIGITAL · CASABLANCA - FRANCE - USA
+          </p>
+        </div>
+
       </div>
     </section>
-
     <section class="right-side">
       <div class="login-container" style="max-width: 400px; width: 100%;">
         <div class="login-card">
@@ -258,7 +112,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
       </div>
     </section>
-
   </div>
 </body>
 

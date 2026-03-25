@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>S'abonner | JADI DIGITAL Helpdesk</title>
+  <title>T.CHECK | Par JADI DIGITAL</title>
+  <link rel="icon" type="image/svg+xml" href="./src/img/favicon.svg">
   <link rel="stylesheet" href="style.css">
   <style>
     .split-screen {
@@ -116,7 +117,7 @@
 
     /* --- SECTION FORMULAIRE (Droite) --- */
     .right-side {
-      flex: 1.2;
+      flex: 1;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -170,7 +171,7 @@
 <body style="margin:0; padding:0; background:none;">
   <div class="split-screen">
 
-    <section class="left-side">
+    <!-- <section class="left-side">
       <div class="blob blob-1"></div>
       <div class="blob blob-2"></div>
 
@@ -202,6 +203,45 @@
             <li style="margin-bottom: 10px;">✓ Support technique 24/7</li>
           </ul>
         </div>
+      </div>
+    </section> -->
+
+    <section class="left-side">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+
+      <div class="business-logic" style="display: flex; flex-direction: column; height: 100%; justify-content: flex-end; gap: 40px;">
+
+        <div class="brand-header">
+          <div class="logo-wrapper" style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
+            <div class="abstract-logo" style="width: 40px; height: 40px; background: #6366f1; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+              <div style="width: 15px; height: 20px; border-left: 4px solid white; border-bottom: 4px solid white; border-radius: 0 0 0 5px; transform: rotate(-10deg);"></div>
+            </div>
+            <span style="font-size: 1.5rem; font-weight: 900; letter-spacing: 1px; color: #fff;">T.CHECK</span>
+          </div>
+          <span style="background: rgba(99, 102, 241, 0.2); color: #818cf8; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; border: 1px solid rgba(99, 102, 241, 0.3);">
+            Ticketing & Helpdesk System
+          </span>
+        </div>
+
+        <div class="hero-text">
+          <h1 style="font-size: 3.2rem; line-height: 1.1; font-weight: 800; margin-top: 20%; letter-spacing: -1.5px;">
+            Gérez chaque incident <br>
+            <span style="color: #6366f1;">avec précision.</span>
+          </h1>
+          <p style="color: #94a3b8; font-size: 1.1rem; margin-top: 20px; max-width: 70%; line-height: 1.6; font-weight: 400;">
+            Optimisez vos flux de support et centralisez vos demandes avec la puissance technologique de <strong>T.CHECK</strong>.
+          </p>
+          <div style="width: 60px; height: 4px; background: #6366f1; border-radius: 2px;"></div>
+        </div>
+
+
+        <div style="margin-top: auto;">
+          <p style="font-size: 0.75rem; color: rgba(255,255,255,0.3); letter-spacing: 1px;">
+            © 2026 JADI DIGITAL · CASABLANCA - FRANCE - USA
+          </p>
+        </div>
+
       </div>
     </section>
 
