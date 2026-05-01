@@ -49,7 +49,7 @@ function validateStatusChange(ticketId) {
       if (data === "success") {
         alert("Statut mis à jour !");
         closeModal(); // Ferme la modale
-        location.reload(); // Recharge pour voir le changement
+        location.reload(); // Recharge la page pour voir le changement
       }
     });
 }

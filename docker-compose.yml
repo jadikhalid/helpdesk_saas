@@ -1,0 +1,38 @@
+services:
+  # --- SERVEUR WEB (APACHE + PHP) ---
+  app:
+    image: php:8.2-apache
+    container_name: helpdesk_web
+    ports:
+      - "8080:80" # Accès via http://localhost:8080
+    volumes:
+      - ./src:/var/www/html # Relie votre code local au conteneur
+    depends_on:
+      - db
+    networks:
+      - helpdesk_network
+
+  # --- BASE DE DONNÉES (MYSQL) ---
+  db:
+    image: mysql:8.0
+    container_name: helpdesk_db
+    restart: always
+    environment:
+      MYSQL_DATABASE: helpdesk_db
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_USER: user_helpdesk
+      MYSQL_PASSWORD: user_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - helpdesk_network
+
+# --- DÉFINITION DES RÉSEAUX ET VOLUMES ---
+networks:
+  helpdesk_network:
+    driver: bridge
+
+volumes:
+  db_data:

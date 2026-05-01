@@ -128,7 +128,7 @@ $tickets = $queryTickets->fetchAll();
             <div class="card modal-fullscreen">
                 <button class="btn-close" onclick="closeModal()">&times; Fermer</button>
                 <h2>Détails du Ticket</h2>
-                <div id="modal-content">Chargement...</div>
+                <div id="modal-content">Chargement...</div>                
             </div>
         </div>
     </div>
